@@ -399,20 +399,16 @@ def run_checks(expression):
     """Run all expression checks"""
 
     if not check_only_valid_characters(expression):
-        raise InvalidExpression(
-            "ERROR: Expression must only contains parentheses, integers for the operands and the operators '+-*x/'")
+        raise InvalidExpression("ERROR: Expression must only contains parentheses, integers for the operands and the operators '+-*x/'")
 
     if not check_parentheses_match(expression):
-        raise InvalidExpression(
-            "ERROR: Parentheses mismatched. Check all your parentheses match.")
+        raise InvalidExpression("ERROR: Parentheses mismatched. Check all your parentheses match.")
 
-    # More complex check required for check_operators_between_brackets(expression)
+    # Advanced checks required for check_operators_between_brackets(expression)
     if check_operators_between_brackets(expression) == "too many operators":
-        raise InvalidExpression(
-            "ERROR: Too many operators per parentheses. Try adding more prentheses.")
+        raise InvalidExpression("ERROR: Too many operators per parentheses. Try adding more prentheses.")
     elif check_operators_between_brackets(expression) == "operator missing bewteen parentheses":
-        raise InvalidExpression(
-            "ERROR: Operator missing between parentheses. Try adding an operator or removing operands or parentheses.")
+        raise InvalidExpression("ERROR: Operator missing between parentheses. Try adding an operator or removing operands or parentheses.")
 
 
 #~~~~~~~~~~~~~~~~~~~~~ Visualise Tree ~~~~~~~~~~~~~~~~~~~~~~#
@@ -453,7 +449,7 @@ class ExpressionValidityTests(unittest.TestCase):
             "(4*(66))"), "operator missing bewteen brackets")  # integers between 1-9 are only accepted in this assignment.
 
 class ExpressionTreeTests(unittest.TestCase):
-# Test that the expression is reconstructed properly after being turned into a tree
+# Test that the expression is reconstructed properly after being turned into a tree.
     def test_expression_reconstruction(self):
         self.assertEqual(build_expression_tree("(((2*(3+2))+5)/2)").__str__(), "(((2*(3+2))+5)/2)")
         
@@ -501,8 +497,7 @@ def save_expression(exp_tree):
 
 
 def load_expression():
-    """Ask the user for the name of the .pickle file and return a warning if not found.
-    If found, load the contents and immediately visualize and evaluate"""
+    """Prompt the user to input the .pickle file and return a error if not found."""
 
     keep_prompting = True
     while keep_prompting:
