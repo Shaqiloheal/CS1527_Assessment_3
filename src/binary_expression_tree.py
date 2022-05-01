@@ -416,7 +416,7 @@ def run_checks(expression):
 def visualize(exp_tree):
     """Do an inorder traversal of the tree and display all nodes in the inorder (infix) hierarchy"""
     for pos in exp_tree.positions():
-        result = "  " * exp_tree.depth(pos) + pos.element()
+        result = "     " * exp_tree.depth(pos) + pos.element()
         print(result)
 
 
@@ -455,8 +455,7 @@ class ExpressionTreeTests(unittest.TestCase):
         
     def test_tree_evaluation(self):
         self.assertEqual(build_expression_tree("(((2*(3+2))+5)/2)").evaluate(), 7.5)
-
-
+        
 
 
 #~~~~~~~~~~~~~~~~~~~~~ Saving and loading  ~~~~~~~~~~~~~~~~~~~~~#
@@ -553,17 +552,22 @@ def run_app():
     run = True
 
     while run:
-        menu_screen = prompt_user_input("Please input whether you want to load or create a new expression, please enter either (load/new or exit)?")
+        menu_screen = prompt_user_input("Please input whether you want to load, create a new expression or perform unit testing, \
+            please enter either (load/new/test/exit)?")
         if menu_screen == "load":
             load_expression()
             run = restart()
+        elif menu_screen == "test":
+            unittest.main()
+            return restart()
         elif menu_screen == "exit":
             return exit()
         elif menu_screen == "new":
             # Assume by default that the expression is invalid and prompt until a valid one is given.
             exp_is_invalid = True
             while exp_is_invalid:
-                expression = prompt_user_input("Please input a valid expression or input 'back' to return to main menu or 'exit' to close the app")
+                expression = prompt_user_input("Please input a valid expression or input 'back'\
+                    to return to main menu or 'exit' to close the app.")
                 if expression == "exit":
                     return exit()
                 elif expression == "back":
@@ -609,5 +613,4 @@ def run_app():
 
 if __name__ == '__main__':
     # To run the unit tests, remove the comment '#' from unittest.main() and run the app.
-    #unittest.main()
     run_app()

@@ -1,16 +1,16 @@
 # README
 Input "python3 expression_tree.py" into the CODIO terminal.
 The program offers a menu interface with basic input checking.
-If your input is has invalid expressions, it'll prompt you with a INVALID message and tell you what to input.
+If your input has invalid expressions, it'll prompt you with a INVALID message and tell you what to input.
 
 From the Tree class to the "Expression validity checking" below represents chapter 8 of the Goodrich Python Algorithm Book,
 the code is taken from the publisher's textbook repository - https://bcs.wiley.com/he-bcs/Books?action=chapter&bcsId=8028&itemId=1118290275&chapterId=88988 .
-This app is submitted as a single file to remove the dead code that isnt used.
-Original code ultilized the method of using modules which results in muliple python modules which
-isn't needed for the assessment.
+This app is submitted as a single module to remove the dead code that isnt used.
+Original code ultilized the method of using multiple inherited modules which results in muliple python modules which isn't needed for the assessment.
 
 ## ---Testing the app---
-  You can run the unit tests provided, just scroll down to "if __name__ == '__main__':" & comment out 'unittest.main()' function while commenting in the 'run_app()' function.
+  Unit testing can be done via the main menu option 'test', once tests are finished the app will close
+  and you will need to restart the app again if you wish to use the other features.
 
 ##  - Notes -
   -> Saved/Loaded files must be in the same directory when executing app.
