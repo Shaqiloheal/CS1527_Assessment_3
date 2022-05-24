@@ -558,16 +558,14 @@ def run_app():
             load_expression()
             run = restart()
         elif menu_screen == "test":
-            unittest.main()
-            return restart()
+            return unittest.main()
         elif menu_screen == "exit":
             return exit()
         elif menu_screen == "new":
             # Assume by default that the expression is invalid and prompt until a valid one is given.
             exp_is_invalid = True
             while exp_is_invalid:
-                expression = prompt_user_input("Please input a valid expression or input 'back'\
-                    to return to main menu or 'exit' to close the app.")
+                expression = prompt_user_input("Please input a valid expression or input 'back' to return to main menu or 'exit' to close the app.")
                 if expression == "exit":
                     return exit()
                 elif expression == "back":
@@ -609,8 +607,6 @@ def run_app():
 
 
 """Driver Code"""
-# Modify Commenting to either execute the app or to run unit tests.
-
 if __name__ == '__main__':
-    # To run the unit tests, remove the comment '#' from unittest.main() and run the app.
+    # When you select unittesting you must run the app as it closes app after executing.
     run_app()
